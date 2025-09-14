@@ -1,0 +1,24 @@
+<mat-card style="max-width: 600px; margin: 20px auto; padding: 20px; text-align: center;">
+      <h2>📧 Spam Classifier</h2>
+      <form (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Email text</mat-label>
+          <textarea matInput [(ngModel)]="emailText" name="emailText" rows="6"></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Check</button>
+      </form>
+    @if (result()?.label) {
+      <div style="margin-top: 20px;">
+        <mat-card color="accent">
+          <p><b>Prediction:</b> {{ result()?.label }}</p>
+          <p><b>Confidence:</b> {{ result()?.confidence | number:'1.2-2' }}</p>
+        </mat-card>
+      </div>
+    } 
+    @if (loading()) {
+        <!-- make this center aligned -->
+      <div style="margin-top: 20px; display: flex; justify-content: center; align-items: center;">
+        <mat-spinner color="accent" diameter="40"></mat-spinner>
+      </div>
+    }
+</mat-card>
