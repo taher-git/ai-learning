@@ -25,7 +25,7 @@ LABELS = {"LABEL_0": "ham", "LABEL_1": "spam"}
 @app.post("/predict")
 async def predict(message: Message):
     result = classifier(message.text)[0]
-    time.sleep(1)  # Simulate processing delay
+    time.sleep(1)  # Simulate processing delay 
     return {
         "label": LABELS.get(result["label"], result["label"]),
         "confidence": result["score"]
