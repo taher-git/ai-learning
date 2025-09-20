@@ -1,8 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from transformers import pipeline
 import time
+import logging
 
 app = FastAPI()
 app.add_middleware(
@@ -24,10 +25,14 @@ LABELS = {"LABEL_0": "ham", "LABEL_1": "spam"}
 
 @app.post("/predict")
 async def predict(message: Message):
-    result = classifier(message.text)[0]
-    time.sleep(1)  # Simulate processing delay 
-    return {
-        "label": LABELS.get(result["label"], result["label"]),
-        "confidence": result["score"]
-    }
-
+    try:
+        result = classifier(message.text)[0]
+        time.sleep(1)  # Simulate processing delay 
+        # raise Exception("Simulated error")  # Simulate an error for testing
+        return {
+            "label": LABELS.get(result["label"], result["label"]),
+            "confidence": result["score"]
+        }
+    except Exception as e:
+        logging.error(f"Prediction failed: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Model prediction failed")

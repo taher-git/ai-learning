@@ -16,9 +16,13 @@
       </div>
     } 
     @if (loading()) {
-        <!-- make this center aligned -->
       <div style="margin-top: 20px; display: flex; justify-content: center; align-items: center;">
         <mat-spinner color="accent" diameter="40"></mat-spinner>
+      </div>
+    }
+    @if (errorMessage) {
+      <div style="margin-top: 20px; color: red;">
+        <p><b>Error:</b> {{ errorMessage }}</p>
       </div>
     }
 </mat-card>

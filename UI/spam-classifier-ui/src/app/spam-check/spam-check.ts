@@ -20,11 +20,13 @@ export class SpamCheck {
   emailText = '';
   result = signal<{label: string, confidence: number} | null>(null);
   loading = signal(false);
+  errorMessage = '';
   constructor(private spamService: Spam) {}
 
   onSubmit() {
     this.loading.set(true);
     this.result.set(null);
+    this.errorMessage = '';
     console.log('Email text submitted:', this.emailText);
     this.spamService.classify(this.emailText).subscribe(
       res => {
@@ -34,7 +36,7 @@ export class SpamCheck {
       },
       err => {
         this.loading.set(false);
-        console.error('Error:', err)
+       this.errorMessage = "Server error, please try again later."
       }
     );
   }
