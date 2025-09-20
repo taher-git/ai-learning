@@ -1,0 +1,21 @@
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.4.2
+matplotlib==3.8.4
+seaborn==0.13.2
+tensorflow==2.16.1
+torch==2.3.0
+torchvision==0.18.0
+torchaudio==2.3.0
+opencv-python==4.9.0.80
+Pillow==10.3.0
+tqdm==4.66.4
+jupyter==1.0.0
+notebook==7.1.3
+scipy==1.13.0
+h5py==3.11.0
+requests==2.32.2
+transformers==4.44.2
+# keras===2.15.0
+datasets==2.21.0
+accelerate==0.33.0

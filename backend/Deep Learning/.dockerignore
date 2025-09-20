@@ -1,0 +1,8 @@
+__pycache__
+*.pyc
+.env
+venv/
+models/
+*.pt
+.DS_Store
+.git
