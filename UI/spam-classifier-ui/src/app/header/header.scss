@@ -1,0 +1,20 @@
+.spacer {
+    flex: 1 1 auto;
+}
+mat-toolbar a, mat-toolbar button {
+    color: rgb(167, 74, 74);
+    text-decoration: none;
+    margin-left: 8px;
+}
+mat-icon {
+    vertical-align: middle;
+}
+a, button {
+    margin-right: 8px; 
+    display: flex; 
+    align-items: center;
+}
+a span, button span {
+   margin-left: 4px;
+   vertical-align: middle;
+}

@@ -1,0 +1,18 @@
+<!-- use material style to make page look pretty  -->
+ 
+<mat-toolbar color="primary" class="mat-elevation-z4" style="padding: 0 24px;">
+    <span style="font-weight: bold; font-size: 1.3rem; letter-spacing: 1px;">Spam Classifier</span>
+    <span class="spacer" style="flex: 1 1 auto;"></span>
+    <a mat-button routerLink="/home">
+        <mat-icon >home</mat-icon>
+        <span>Home</span>
+    </a>
+    <a mat-button routerLink="/home/spam-check" >
+        <mat-icon>search</mat-icon>
+        <span>Spam Check</span>
+    </a>
+    <button mat-raised-button color="accent" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+    </button>
+</mat-toolbar>
