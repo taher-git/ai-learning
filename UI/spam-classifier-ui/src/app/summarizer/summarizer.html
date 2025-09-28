@@ -3,20 +3,15 @@
 
     <mat-card>
         <mat-card-content>
-            <label style="display:block;margin-bottom:8px;">Summary Style:</label>
-            <mat-radio-group [value]="summaryType()" (change)="summaryType.set($event.value)" style="display:flex;flex-direction:row;gap:16px;">
-                <mat-radio-button value="paragraph">Paragraph</mat-radio-button>
-                <mat-radio-button value="bullet">Bullet Points</mat-radio-button>
-            </mat-radio-group>
             <label style="display:block;margin-bottom:8px;">Upload Meeting File</label>
-            <input type="file" (change)="onFileSelected($event, 'local')" style="width:100%;margin-bottom:16px;" />
-            <button mat-raised-button color="primary" style="margin-top:16px;" (click)="onFileSelected($event, 'api')">
-                Upload via API
+            <input type="file" (change)="onFileSelected($event, 'api')" style="width:100%;margin-bottom:16px;" />
+            <button mat-raised-button color="primary" style="margin-top:16px;" (click)="onFileSelected($event, 'dummy')">
+                Load Dummy Data
             </button>
         </mat-card-content>
     </mat-card>
-
-    <div *ngIf="loading()" style="margin-top:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+    <!-- freeze screen while loading and display loader on middle of screen -->
+        <div *ngIf="loading()" style="margin-top:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
         <mat-progress-spinner mode="indeterminate" diameter="40"></mat-progress-spinner>
         <div style="margin-top:8px;text-align:center;">⏳ Processing...</div>
     </div>
@@ -42,10 +37,17 @@
             </ng-container>
         </mat-card-content>
     </mat-card>
-
-    <mat-card *ngIf="summary()" style="margin-top:24px;">
+<!-- Create three tabs - Summary, Action Items and Ask -->
+<mat-tab-group *ngIf="transcript()" (selectedTabChange)="onTabChange($event)" >
+    <!-- Call summarize method to load data on selecting tab -->
+  <mat-tab label="Summary" id = "summary-tab">
+        <mat-card tyle="margin-top:24px;">
         <mat-card-title>Summary</mat-card-title>
-        
+         <label style="display:block;margin-bottom:8px;">Summary Style:</label>
+            <mat-radio-group [value]="summaryType()" (change)="loadSummary($event.value)" style="display:flex;flex-direction:row;gap:16px;">
+                <mat-radio-button value="paragraph">Paragraph</mat-radio-button>
+                <mat-radio-button value="bullet">Bullet Points</mat-radio-button>
+            </mat-radio-group>
         <mat-card-content *ngIf="summaryType() === 'paragraph'">
             <p>{{ summary() }}</p>
         </mat-card-content>
@@ -57,8 +59,10 @@
             </mat-list>
         </mat-card-content>
     </mat-card>
-
-    <mat-card *ngIf="actionItem()" style="margin-top:24px;">
+  </mat-tab>
+  <mat-tab label="Action Items" id = "actions-tab">
+    <ng-template matTabContent>
+    <mat-card style="margin-top:24px;">
         <mat-card-title>Action Items</mat-card-title>
         <mat-card-content>
             <mat-list>
@@ -67,5 +71,19 @@
                 </mat-list-item>
             </mat-list>
         </mat-card-content>
+    </mat-card> 
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Ask" id = "ask-tab"> 
+        <mat-card style="margin-top:24px;">
+        <mat-card-title>Ask</mat-card-title>
+        <mat-card-content>
+            <app-chat [mode] = "mode()">
+            </app-chat>
+        </mat-card-content>
     </mat-card>
+  </mat-tab>
+</mat-tab-group>
+
+
 </div>

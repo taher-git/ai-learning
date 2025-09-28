@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class Spam {
-  private apiUrl = 'http://127.0.0.1:8000/predict';
+  private apiUrl = 'http://127.0.0.1:8001/predict';
 
   constructor(private http: HttpClient) {}
 

@@ -1,0 +1,19 @@
+<div class="chat-container" #chatContainer>
+  <div *ngFor="let msg of messages()" [ngClass]="msg.sender">
+    <div class="bubble">{{ msg.text }}</div>
+  </div>
+
+  <!-- typing indicator -->
+  <div *ngIf="botTyping()" class="bot">
+    <div class="bubble typing">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="input-area">
+    <input [(ngModel)]="userInput"
+           (keyup.enter)="sendMessage()"
+           placeholder="Type your question..."/>
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>
