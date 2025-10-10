@@ -1,0 +1,87 @@
+<div class="container mt-5">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="text-center">AI Java Code Reviewer</mat-card-title>
+           <a mat-button (click)="showHistory.set(!showHistory())" style="position:absolute;top:16px;right:16px;">
+                <span>{{ showHistory() ? 'Back' : 'History'}}</span>
+            </a>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-label style="display:block;margin-bottom:8px;">Upload and Analyze</mat-label>
+        <!-- Add a radio button -->
+         @if(showHistory()){
+            <app-review-history></app-review-history>
+         } @else {
+        <div class="text-center my-4" style="margin-top: 50px;">
+              <mat-radio-group [value]="byCategoryFlag()" (change)="changeByCategoryFlag($event.value)" style="display:flex;flex-direction:row;gap:16px;justify-content:left;margin-bottom:16px;">
+                <mat-radio-button value="true">Review by Category</mat-radio-button>
+                <mat-radio-button value="false">Full Review</mat-radio-button>
+              </mat-radio-group>
+              <input type="file" accept=".java" (change)="onFileSelected($event)" style="width:100%;margin-bottom:16px;" />
+        </div>
+        <div *ngIf="loading()" style="margin-top:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <mat-progress-spinner mode="indeterminate" diameter="40"></mat-progress-spinner>
+          <div style="margin-top:8px;text-align:center;">⏳ Analyzing...</div>
+        </div>
+        <div *ngIf="reviewResult().filename && !loading()" class="mt-4">
+          <mat-card>
+            <mat-card-title>Results for {{reviewResult().filename}}</mat-card-title>
+            <div style="display:flex;flex-direction:row;gap:16px;justify-content:right;margin-right:16px;">
+              <mat-radio-group [value]="fileFormat()" (change)="changeFileFormat($event.value)" >
+                <mat-radio-button value="pdf">PDF</mat-radio-button>
+                <mat-radio-button value="txt">Text</mat-radio-button>
+              </mat-radio-group>
+              <button class="btn btn-secondary mt-3 ms-2" (click)="downloadReport()">Download Report as {{fileFormat().toUpperCase()}}</button>
+            </div>
+            <mat-card-content>
+              <h4>Security Issues:</h4>
+                  <ul><li *ngFor="let s of reviewResult().security_issues">{{s}}</li></ul>
+                  <h4>Performance Issues:</h4>
+                  <ul><li *ngFor="let p of reviewResult().performance_issues">{{p}}</li></ul>
+              <h5>AI Review:</h5>
+              @if(byCategoryFlag() === 'true'){
+                <h4>🐞 Bug Issues</h4>
+                  <ul><li *ngFor="let issue of reviewResult().ai_review.Bug">
+                    <strong [ngClass]="{
+                        'text-danger': issue.severity === 'High',
+                        'text-warning': issue.severity === 'Medium',
+                        'text-success': issue.severity === 'Low'
+                      }">
+                      [{{issue.severity}}]
+                    </strong> {{issue.issue}}
+                  </li></ul>
+
+                  <h4>🧠 Refactor Suggestions</h4>
+                  <ul><li *ngFor="let issue of reviewResult().ai_review.Refactor">
+                      <strong [ngClass]="{
+                        'text-danger': issue.severity === 'High',
+                        'text-warning': issue.severity === 'Medium',
+                        'text-success': issue.severity === 'Low'
+                      }">
+                      [{{issue.severity}}]
+                    </strong> {{issue.issue}}
+                  </li></ul>
+
+                  <h4>🎨 Style Improvements</h4>
+                  <ul><li *ngFor="let issue of reviewResult().ai_review.Style">
+                      <strong [ngClass]="{
+                        'text-danger': issue.severity === 'High',
+                        'text-warning': issue.severity === 'Medium',
+                        'text-success': issue.severity === 'Low'
+                      }">
+                      [{{issue.severity}}]
+                    </strong> {{issue.issue}}
+                  </li></ul>
+
+              } @else {
+                <mat-form-field appearance="fill" style="width:100%;">
+                  <textarea matInput readonly rows="8">{{reviewResult().ai_review}}</textarea>
+                </mat-form-field>
+              }
+            </mat-card-content>
+          </mat-card>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

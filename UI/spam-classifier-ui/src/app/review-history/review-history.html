@@ -1,0 +1,41 @@
+<!-- Modify code using mateerial table and latest design -->
+ <mat-card>
+  <mat-card-header>
+    <mat-card-title>Review History</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <!-- Material Table with Angular Material components -->
+        <table mat-table [dataSource]="reviews()" class="mat-elevation-z8">
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>ID</th>
+                <td mat-cell *matCellDef="let r">{{ r.id }}</td>
+            </ng-container>
+
+            <!-- File Column -->
+            <ng-container matColumnDef="filename">
+                <th mat-header-cell *matHeaderCellDef>File</th>
+                <td mat-cell *matCellDef="let r">{{ r.filename }}</td>
+            </ng-container>
+
+            <!-- Date Column -->
+            <ng-container matColumnDef="created_at">
+                <th mat-header-cell *matHeaderCellDef>Date</th>
+                <td mat-cell *matCellDef="let r">{{ r.created_at }}</td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>Actions</th>
+                <td mat-cell *matCellDef="let r">
+                    <button mat-raised-button color="primary" (click)="view(r)">View</button>
+                    <button mat-raised-button color="primary" (click)="delete(r)">Delete</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['id', 'filename', 'created_at', 'actions']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['id', 'filename', 'created_at', 'actions'];"></tr>
+        </table>
+  
+    </mat-card-content>
