@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, effect, ElementRef, Input, input, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, effect, ElementRef, Input, input, OnInit, signal, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SummarizerService } from '../summarizer-service';
+import { DocAssistantService } from '../doc-assistant-service';
 
 interface Message {
   sender: 'user' | 'bot';
@@ -14,17 +15,16 @@ interface Message {
   templateUrl: './chat.html',
   styleUrl: './chat.scss'
 })
-export class Chat implements AfterViewInit {
+export class Chat implements AfterViewInit , OnInit{
   @ViewChild('chatContainer') chatContainer!: ElementRef<HTMLDivElement>;
   // make this variable signal
- messages = signal<Message[]>([
-    { sender: 'bot', text: 'Hi! Ask me anything about the meeting.' }
-  ]);
-
   userInput: string = '';
   botTyping = signal(false);
   @Input() mode: 'api' | 'dummy' = 'api';
-  constructor(private summarizerService: SummarizerService) {
+  @Input() from: 'meeting' | 'document' = 'meeting';
+
+   messages = signal<Message[]>([]);
+  constructor(private summarizerService: SummarizerService, private docAssistantService : DocAssistantService) {
     // auto scroll whenever messages or typing changes
     effect(() => {
       this.messages();
@@ -32,9 +32,24 @@ export class Chat implements AfterViewInit {
       this.scrollToBottom();
     });
   }
+  ngOnInit(): void {
+    console.log("From : ", this.from);
+    this.messages.set([
+      { sender: 'bot', text: 'Hi! Ask me anything about the '+this.from+'.' }
+    ]);
+    this.docAssistantService.clearChat.subscribe(clear => {
+      if(clear) {
+        this.messages.set([
+          { sender: 'bot', text: 'Hi! Ask me anything about the '+this.from+'.' }
+        ]);
+        this.docAssistantService.clearChat.next(false);
+      }
+    });
+  }
 
   ngAfterViewInit() {
     this.scrollToBottom();
+
   }
 
 
@@ -64,6 +79,16 @@ export class Chat implements AfterViewInit {
       this.userInput = '';
       return;
     }
+    if(this.from === 'meeting'){
+      this.callSummaryService(question);
+    } else if(this.from === 'document'){
+      this.callDocumentService(question);
+    }
+    // Clear input
+    this.userInput = '';
+  }
+
+  callSummaryService(question: string) {
     this.summarizerService.askQuestion(question).subscribe({
       next: (res) => {
         this.botTyping.set(false);
@@ -75,7 +100,23 @@ export class Chat implements AfterViewInit {
         this.messages.update(msgs => [...msgs, { sender: 'bot', text: 'Sorry, something went wrong. Please try again later.' }]);
       }
     });
-    // Clear input
-    this.userInput = '';
+  }
+
+  callDocumentService(question: string) {
+    // if(!question || question.trim().length === 0) {
+    //   question = "What does it says about Account class";
+    //   this.messages.update(msgs => [...msgs, { sender: 'user', text: question}]);
+    // }
+    this.docAssistantService.askQuestion(question).subscribe({
+      next: (res) => {
+        this.botTyping.set(false);
+        this.messages.update(msgs => [...msgs, { sender: 'bot', text: res.answer }]);
+      },
+      error: (err) => {
+        console.error(err);
+        this.botTyping.set(false);
+        this.messages.update(msgs => [...msgs, { sender: 'bot', text: 'Sorry, something went wrong. Please try again later.' }]);
+      }
+    });
   }
 }

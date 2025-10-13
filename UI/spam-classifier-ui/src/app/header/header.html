@@ -1,8 +1,8 @@
 <!-- use material style to make page look pretty  -->
  
 <mat-toolbar color="primary" class="mat-elevation-z4" style="padding: 0 24px;">
-    <span style="font-weight: bold; font-size: 1.3rem; letter-spacing: 1px;">Spam Classifier / Meeting Summarizer</span>
-    <span class="spacer" style="flex: 1 1 auto;"></span>
+    <!-- <span style="font-weight: bold; font-size: 1.3rem; letter-spacing: 1px;">Spam Classifier / Meeting Summarizer</span> -->
+    <!-- <span class="spacer" style="flex: 1 1 auto;"></span> -->
     <a mat-button routerLink="/home">
         <mat-icon >home</mat-icon>
         <span>Home</span>
@@ -19,12 +19,16 @@
         <mat-icon>code</mat-icon>
         <span>Code Review</span>
     </a>
-    <button mat-raised-button color="accent" (click)="logout()">
+    <a mat-button routerLink="/home/doc-assistant" >
+        <mat-icon>description</mat-icon>
+        <span>Document Assistant</span>
+    </a>
+    <button mat-raised-button color="accent" style="position:absolute;top:16px;right:65px;" (click)="logout()">
         <mat-icon>logout</mat-icon>
         <span>Logout</span>
     </button>
      <!-- <mat-slide-toggle (change)="toggleTheme()" [checked]="isDarkMode" color="accent"></mat-slide-toggle> -->
-     <button mat-icon-button (click)="toggleTheme()">
+     <button mat-icon-button (click)="toggleTheme()" style="position:absolute;top:16px;right:16px;">
     <mat-icon>{{ isDarkMode ? 'dark_mode' : 'light_mode' }}</mat-icon>
     </button>   
 </mat-toolbar>
