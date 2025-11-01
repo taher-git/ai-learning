@@ -1,0 +1,163 @@
+My name is Taher Multan, I am a technology professional with 9+ years of experience in software development, currently working at IBM (since Aug 2025). Over the years, I have contributed to building scalable solutions, streamlining processes, and delivering impactful business outcomes through innovative use of technology.
+
+🔹 My expertise spans across the Software Development Life Cycle (SDLC), with strong exposure to Agile methodologies and cross-functional collaboration. I have hands-on experience in designing, developing, and deploying applications using modern frameworks and tools.
+
+Technical Skills:
+
+Programming & Frameworks: Java, Angular, Spring, Hibernate
+
+Databases: MySQL, Oracle 10g, MongoDB
+
+🔹 Currently, I am also expanding my knowledge in Artificial Intelligence and Machine Learning, aiming to bridge my strong software engineering foundation with intelligent, data-driven solutions.
+
+
+
+Below is my Resume - 
+
+Taher Multan
+137-B, Burhani colony,
+Abhinandan Nagar, Mandsaur
+MP, India – 458002
+Email: taher.multani@gmail.com
+Mob: +91 7736162853
+DOB: 29th Aug, 1992
+SUMMARY .
+• Presently working with IBM since Aug, 2025.
+• 9+ yrs of professional experience in automation and software development. Development Life Cycle
+methodologies, Agile methodology with a good understanding of
+various technologies.
+ Pasionate about learning AI and become and AI Engineer.
+• Skilled in requirements analysis and project documentation.
+• Business Analysis, Data Analysis and Documentation using Agile(scrum) Methodologies.
+• Able to communicate effectively with both technical and non-technical project stakeholders.
+• A skilled Java personnel with a flair for learning and adopting new technologies.
+• Strong debug, analytical and problem-solving skills with good inter-personal and communication skills.
+• Ability to do work in diverse team and in fast paced dynamic environment.
+• Hands-on experience on variety of Frontend and Backend tools.
+• Proficient in coding and developing the new program.
+TECHNICAL SKILLS .
+• Technologies: Angular, React, JAVA, Servlet and PL SQL,.
+• Frameworks: Spring, Hibernate, Struts 2.0.
+• Data Base: Oracle 10g, MySQL.
+• Application Server: Apache Tomcat, Node
+• Designing Tools: HTML, JavaScript, CSS
+PROFESSIONAL DETAILS .
+IBM Aug 2025 - Presently
+Working in ISDL
+Storage domain
+Learning IBM Quantum Computing, and will contribute to its open source soon.
+Coforge Oct 2024 - Aug 2025
+Technology Specialist Pune
+Tech stack – Angular, Spring, JavaScript
+• Developing UI in Angular.
+• Bug fixes in Backend (Spring boot).
+• Supervising team, Code review and resolving issues.
+Sr. Software Engineer
+ITC Infotech
+Projects:
+• Finastra
+Finastra provides banking solution to the clients worldwide. We are responsible for developing
+banking application in Angular and Spring
+Technologies used:
+Angular, Spring, JIRA, Azure, Junit, BDD
+Responsibilities:
+• Developing UI in Angular and Backend services in Spring.
+• Interacting with BA on daily basis by following the Agile approach
+• Supervising team, Code review and resolving issues.
+• Involving in sprint calls and dividing tasks.
+InfoBeans
+Projects:
+• NEXTCARE
+NEXTCARE is an application that handles data and analyst it. It deals with medical clients and
+provides a solution. We are developing UI for this portal in Angular
+Technologies used:
+Angular 9, TypeScript, JIRA
+Responsibilities:
+• Development of Application in new technology.
+• Interacting with Client on daily basis by following the Agile approach
+• Proactively work with the team and solving problems.
+• Deploying build on test server.
+• ENC Portal
+ENC is an internal portal used for simplifying separation process. It handles end to end separation
+timeline. And provides a rich UI.
+Technologies used:
+React, JavaScript, JIRA
+Responsibilities:
+• Automating manual process of separation
+• Interacting with Team on daily basis by following the Agile approach
+• Proactively work with the team and solving problems.
+ADP (Automatic Data Processing)
+Projects:
+• COS Desktop
+It’s an application designed to be used by COS users. It basically handles the data flow of payroll and
+it handles Resource management and integration of different client.
+Technologies used:
+Struts 2.0, Spring, Hibernate, JavaScript, HTML.
+Responsibilities:
+• Working with BA to finalize the approach to follow.
+• Creating wireframes if required.
+• Developing UI from scratch using Angular.
+• Developing RESTfull backend API’s using Struts, Spring and Hibernate.
+This application is a very old application and we are rewriting the whole application using Angular and
+Spring.
+TCS (Tata Consultancy Services)
+Projects:
+• NORAD Rewrite (Bank of Montreal)
+NORAD is an application, developed in Asp.net. It was designed to be used by the personals in (BMO)
+bank. It handles all the transection related stuff, all customer details, account receivables, customer
+account information etc. Business wanted to enhance the functionalities and rewrite the whole
+application in Angular.
+Technologies used:
+Angular 5, NgPrime Directive, Bootstrap, SVN, Spring, REST and Maven
+Responsibilities:
+* Developing UI using Angular 5 and backend services using Spring boot.
+* Integrating with legacy backend services.
+* Providing new features (Master search box, Split screen, Auxiliary routing, Dynamic file generation
+system etc).
+* Providing demo to client and understanding requirement changes if any.
+• GECARS (General Electric)
+GECARS is a project deals with the Account Receivables(AR) of the business. It is basically an
+application which handles all the activity of the AR. It has three models (LITE, CLASSIC and PRIME)
+differentiated on the basis of functionality provided. It also provides reports like OI and CMF.
+Technologies used:
+PL/SQL, Putty, WinSCP, Oracle 10g and JSP.
+Responsibilities:
+* Enhancement of Customer search module.
+* Worked on creating Spot-fire dashboard.
+* Setting up environment and configurations for smooth execution after go-live.
+* Developing procedures using PL/SQL.
+• WCS Online tool (General Electric Core Account Receivable System)
+WCS Online tool is developed to upload the customer and invoice files and perform validation on the
+data. It transfers data after validating it.
+Technologies used:
+Java, Servlet, PL/SQL, JSP and Oracle 10g
+Responsibilities:
+* Understanding end to end process of file transfer.
+* Developing WCS tool using JSP.
+* Providing access to the tool.
+• ILP (Initial learning program) Trivandrum:
+My ILP was on JAVA. It was a lifetime experience. There I got opportunity to learn a lot of thing
+including Communication skills and technical skills. As my stream was Java it was great fun and
+learning. I was rated as best performer in ILP
+We as a team of 5 member developed a web application on JAVA using JSP, Strut and Hibernate. I
+was leading the project.
+ACADEMIC DETAILS .
+Examination University Institute Year CGPI / %
+MCA RGPV, Bhopal Mandsaur Institute of 2015 7.3/10.0
+Technology
+BCA Vikram University, Mandsaur Institute of 2013 72.81%
+Ujjain Technology
+XII MP Board Dashpur Vidhyalaya 2010 70.40%
+X MP Board Dashpur Vidhyalaya 2008 76.40%
+ACHIEVEMENT .
+• Rated as top performer in Initial Learning Program at TCS, Trivandrum.
+• Received formal appreciation from client for delivering under proper deadlines.
+• Got – ‘Top performer of the month’ several times.
+• Got 99.2 percentile in MAH-CET
+• Received many awards at college level coding competition.
+CERTIFICATE .
+Advanced Java Certified from Universal Infotech, Indore.
+Certification on Android from Robonet Pvt Lmt, Ahmedabad.
+I love to do Paining and reading books in my free time.
+I do watch movies to chill.
+I love to travel.
